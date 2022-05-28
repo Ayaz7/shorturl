@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const homeRouter = require('./routers/homeRouter')
 const path = require('path')
 const ShortUrl = require('./models/url.model');
+const port  = process.env.port || 8080;
 const { error } = require('console');
 
 const app = express()
@@ -97,4 +98,4 @@ app.use((err, req, res, next) => {
   res.render('index', { error: err.message })
 })
 
-app.listen(8080, () => console.log('🌏 on port 8080...'))
+app.listen(port, () => console.log('🌏 on port 8080...'))
